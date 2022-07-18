@@ -1,0 +1,26 @@
+{
+  "name": "express-blog-be",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MityaDementiy/express-blog-be.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MityaDementiy/express-blog-be/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/MityaDementiy/express-blog-be#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^5.0.0-beta.1"
+  }
+}
