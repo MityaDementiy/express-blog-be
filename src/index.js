@@ -1,13 +1,16 @@
-import express from 'express';
-import dotenv from 'dotenv';
+const express = require('express');
+const dotenv = require('dotenv');
+
+const { getBlogPosts } = require('./db/db');
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT ?? 8001;
 
-app.get('/', (req, res) => {
-  res.send('This is Express.js blog');
+app.get('/', async (req, res) => {
+  const currentBlogPosts = await getBlogPosts();
+  res.send(currentBlogPosts);
 });
 
 app.listen(port, () => {
