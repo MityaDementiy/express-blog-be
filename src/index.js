@@ -8,10 +8,9 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT ?? 8001;
 
-app.get('/', async (req, res) => {
-  const currentBlogPosts = await getBlogPosts();
-  res.send(currentBlogPosts);
-});
+const handlers = require('./lib/handlers/handlers');
+
+app.get('/', handlers.listBlogPosts);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}: http://localhost:${port}`);

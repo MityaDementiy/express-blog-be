@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { credentials } = require('../../config');
+const BlogPost = require('../models/blogPost');
 
 const { connectionString } = credentials.mongo;
 
@@ -19,18 +20,25 @@ db.on('error', (err) => {
 
 db.once('open', () => console.log('Connected to Mongo'));
 
-const getBlogPosts = async (options = {}) => {
-  const blogPosts = [
-    {
-      id: 1,
-      name: 'Hello, World',
-      slug: 'hello-world',
-      content: 'This is first test post.',
-      category: 'general'
-    }
-  ];
+BlogPost.find((err, blogPosts) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
 
-  return blogPosts;
-};
+  if (blogPosts.length) {
+    return;
+  }
+
+  new BlogPost({
+    id: 1,
+    name: 'Hello, World!',
+    slug: 'hello-world',
+    content: 'This is first test post.',
+    category: 'general'
+  }).save();
+});
+
+const getBlogPosts = async (options = {}) => BlogPost.find(options);
 
 module.exports = { getBlogPosts };
