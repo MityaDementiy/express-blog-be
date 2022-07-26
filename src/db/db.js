@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const mongoose = require('mongoose');
 
 const { credentials } = require('../../config');
@@ -20,6 +21,7 @@ db.on('error', (err) => {
 
 db.once('open', () => console.log('Connected to Mongo'));
 
+// eslint-disable-next-line array-callback-return
 BlogPost.find((err, blogPosts) => {
   if (err) {
     console.error(err);
@@ -35,7 +37,7 @@ BlogPost.find((err, blogPosts) => {
     name: 'Hello, World!',
     slug: 'hello-world',
     content: 'This is first test post.',
-    category: 'general'
+    category: 'general',
   }).save();
 });
 

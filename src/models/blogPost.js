@@ -5,7 +5,7 @@ const blogPostSchema = mongoose.Schema({
   name: String,
   slug: String,
   content: String,
-  category: String
+  category: String,
 });
 
 const BlogPost = mongoose.model('BlogPost', blogPostSchema);

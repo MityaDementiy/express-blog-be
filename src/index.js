@@ -1,8 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
 
-const { getBlogPosts } = require('./db/db');
-
 dotenv.config();
 
 const app = express();
@@ -13,5 +11,6 @@ const handlers = require('./lib/handlers/handlers');
 app.get('/', handlers.listBlogPosts);
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server listening on port ${port}: http://localhost:${port}`);
 });

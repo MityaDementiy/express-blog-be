@@ -8,7 +8,7 @@ exports.listBlogPosts = async (req, res) => {
       name: blogPost.name,
       slug: blogPost.slug,
       content: blogPost.content,
-      category: blogPost.category
+      category: blogPost.category,
     })),
   };
 
