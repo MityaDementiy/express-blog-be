@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-const { credentials } = require('../../config');
 const BlogPost = require('../models/blogPost');
 
-const { connectionString } = credentials.mongo;
+const connectionString = process.env.CONNECTION_STING;
 
 if (!connectionString) {
   console.error('Check your Mongoose configuration!');
