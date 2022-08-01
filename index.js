@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT ?? 8001;
 
-const handlers = require('./lib/handlers/handlers');
+const handlers = require('./src/lib/handlers/handlers');
 
 app.use(express.static(path.join(__dirname, '..', '/public')));
 app.get('/', handlers.listBlogPosts);
