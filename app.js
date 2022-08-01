@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, '..', '/public')));
 app.get('/', handlers.listBlogPosts);
 
 app.listen(port, () => {
+  const destination = process.env.NODE_ENV !== 'production' ? 'http://localhost:5001' : 'https://express-blog-be.onrender.com/';
   // eslint-disable-next-line no-console
-  console.log(`Server listening on port ${port}: http://localhost:${port}`);
+  console.log(`Server listening on ${destination}`);
 });
